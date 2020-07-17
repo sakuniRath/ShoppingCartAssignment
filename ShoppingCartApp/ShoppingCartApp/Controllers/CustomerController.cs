@@ -22,11 +22,13 @@ namespace ShoppingCartApp.Controllers
         }
         
         [HttpPost]
-        public async Task<bool> PostRegisterCustomer(CustomerModel customerMoedel)//Customer registration function
+        public async Task<IActionResult> PostRegisterCustomer(CustomerModel customerMoedel)//Customer registration function
         {
 
             bool status = await serviceC.CreateNewUser(customerMoedel);
-            return status;
+            if (!status)
+                return BadRequest(new { message = "email address exit" });
+            return Ok(status);
         }
     }
    

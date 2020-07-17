@@ -160,23 +160,23 @@
                     <h3>Create an Account</h3>
                     <form class="row login_form" #fromCustomer="ngForm" (ngSubmit)="onSubmit(fromCustomer)" autocomplete="off">
                         <div class="col-md-6 form-group">
-                            <input type="text" class="form-control" name="firstName" #firstName="ngModel" [(ngModel)]="customerservice.formData.firstName" placeholder="First Name" required/>
+                            <input type="text" class="form-control" name="firstName" #firstName="ngModel" [(ngModel)]="registerUser.firstName" placeholder="First Name" required/>
           
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="text" class="form-control" name="lastName" #lastName="ngModel" [(ngModel)]="customerservice.formData.lastName" placeholder="Last Name"/>    
+                            <input type="text" class="form-control" name="lastName" #lastName="ngModel" [(ngModel)]="registerUser.lastName" placeholder="Last Name"/>    
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="customerservice.formData.phoneNumber" placeholder="Phone Number"/>
+                            <input type="text" class="form-control" name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="registerUser.phoneNumber" placeholder="Phone Number"/>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" name="address" #address="ngModel" [(ngModel)]="customerservice.formData.address" placeholder="Address"/>
+                            <input type="text" class="form-control" name="address" #address="ngModel" [(ngModel)]="registerUser.address" placeholder="Address"/>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="customerservice.formData.email" placeholder="Email Address"/>
+                            <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="registerUser.email" placeholder="Email Address"/>
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="customerservice.formData.password" placeholder="Password"/>
+                            <input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="registerUser.password" placeholder="Password"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <input type="password" class="form-control" id="pass" name="pass" placeholder="Confirm password"/>

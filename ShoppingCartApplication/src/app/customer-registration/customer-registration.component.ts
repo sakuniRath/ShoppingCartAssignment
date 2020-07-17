@@ -13,8 +13,12 @@ import { NgForm } from '@angular/forms';
 })
 export class CustomerRegistrationComponent implements OnInit {
 
-  constructor(public customerservice:CustomerDetailService) { }
   error: string;
+  public registerUser:CustomerDetail;
+  constructor(public customerservice:CustomerDetailService) { 
+    this.registerUser=new CustomerDetail();
+  }
+  
   ngOnInit(): void {
     
     
@@ -22,20 +26,11 @@ export class CustomerRegistrationComponent implements OnInit {
   resetButton(form :NgForm){
 
     if(form !=null)form.reset();
-    this.customerservice.formData={
-    customerId:null,
-      firstName:'',
-      lastName:'',
-      phoneNumber:'',
-      email:'',
-      password:'',
-      address:'',
-
-    }
+    
   }
   onSubmit(form:NgForm)
   {if(form.value.customerId==null){
-    this.customerservice.PostCustomer(form.value).subscribe( 
+    this.customerservice.PostCustomer(this.registerUser).subscribe( 
       res =>{
       this.resetButton(form);
     },
