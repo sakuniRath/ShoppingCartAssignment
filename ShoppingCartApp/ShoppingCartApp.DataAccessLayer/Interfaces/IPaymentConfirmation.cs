@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using ShoppingCartApp.DataAccessLayer.Models;
 
 namespace ShoppingCartApp.DataAccessLayer.Interfaces
 {
-    public interface IProductList
+    public interface IPaymentConfirmation
     {
-        public IEnumerable<Product> GetAllProductList();
-        
+        public Task<int> PaymentConfirmationDetail();
     }
 }

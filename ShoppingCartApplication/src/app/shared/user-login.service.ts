@@ -9,13 +9,26 @@ import { Observable } from 'rxjs';
 })
 export class UserLoginService {
   readonly rootURL='http://localhost:49288/api/';
+  userDisplayName = '';
 
   constructor(private http:HttpClient) { }
 
   postLogin(loginR:UserLogin): Observable<AuthenticateResponse>{
-    console.log(loginR);
+    //console.log(loginR);
 
     return this.http.post<AuthenticateResponse>(this.rootURL+'LoginUser',loginR);
+  }
+
+  getUserName()
+  {
+    return this.userDisplayName = sessionStorage.getItem('loggedUser');
+    //console.log(this.userDisplayName);
+    //return this.userDisplayName;    
+  }
+
+  getAccessToken()
+  {
+    return sessionStorage.getItem('userToken');
   }
 
   

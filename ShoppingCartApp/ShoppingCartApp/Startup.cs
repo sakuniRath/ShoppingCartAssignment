@@ -57,6 +57,7 @@ namespace ShoppingCartApp
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IUserServicecs,UserService> ();
+            services.AddScoped<ICheckOutService, CheckoutService>();
             
         }
 

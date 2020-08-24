@@ -20,6 +20,9 @@ import { CartItemsComponent } from './cart-items/cart-items.component';
 import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { HearderComponentComponent } from './hearder-component/hearder-component.component';
+import { FooterComponentComponent } from './footer-component/footer-component.component';
+import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
 
 
 const routes: Routes = [
@@ -38,6 +41,9 @@ const routes: Routes = [
     CartItemsComponent,
     CustomerRegistrationComponent,
     UserLoginComponent,
+    HearderComponentComponent,
+    FooterComponentComponent,
+    PaymentConfirmationComponent,
     
   ],
   imports: [

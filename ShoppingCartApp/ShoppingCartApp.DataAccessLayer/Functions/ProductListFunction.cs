@@ -6,19 +6,22 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace ShoppingCartApp.DataAccessLayer.Functions
 {
     public class ProductListFunction : IProductList
     {
-        public async Task<List<Product>> GetAllProductList()// get all product detail in the database
+        public IEnumerable<Product> GetAllProductList()// get all product detail in the database
         {
             List<Product> products = new List<Product>();
             using (var context = new DatabaseContext())
             {
-                products = await context.Products.ToListAsync();
+                products = context.Products.ToList();
             }
             return products;
         }
+
+        
     }
 }

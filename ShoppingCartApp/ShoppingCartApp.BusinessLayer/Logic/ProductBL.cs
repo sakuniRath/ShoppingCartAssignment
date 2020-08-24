@@ -19,7 +19,7 @@ namespace ShoppingCartApp.BusinessLayer
         public async Task<List<ProductModel>> GetAllProductList()// db product model map to prodctModel
         {
             List<ProductModel> pm = new List<ProductModel>();
-            List<Product> productAllList = await productList.GetAllProductList();
+            IEnumerable<Product> productAllList = productList.GetAllProductList();
             foreach (var product in productAllList)
             {
                 pm.Add(new ProductModel()
@@ -29,7 +29,8 @@ namespace ShoppingCartApp.BusinessLayer
                     ProductName = product.ProductName,
                     UnitPrice = product.UnitPrice,
                     Stock = product.Stock,
-                    Image = "/Images/" + product.Image
+                    Image = "/Images/" + product.Image,
+                    SelectedItemCount=1
                 }) ;
 
 

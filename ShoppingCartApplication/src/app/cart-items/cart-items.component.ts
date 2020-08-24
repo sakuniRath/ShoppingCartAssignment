@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductDetailService } from 'src/app/shared/product-detail.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-cart-items',
@@ -8,12 +9,15 @@ import { ProductDetailService } from 'src/app/shared/product-detail.service';
 })
 export class CartItemsComponent implements OnInit {
   items;
+  public totalAmount;
+  public itemTotal:number;
+  
 
   constructor(private _service:ProductDetailService) { }
 
   ngOnInit(): void {
     this.items = this._service.getItems();
-    console.log(this.items);
+    this.getTotalAmount();
   }
   public getImageUrl(path: string)
   {
@@ -24,5 +28,37 @@ export class CartItemsComponent implements OnInit {
   {
     this._service.removeToCart(pid);
   }
+
+  getTotalAmount(){
+     return this.totalAmount=this._service.getTotalPrice();
+  }
+
+  getItemTotal(pid:number){
+    //console.log(pid);
+    var changedItem=this.items.filter(x => x.productId == pid)
+    //console.log(changedItem);
+    this.itemTotal=changedItem[0].selectedItemCount *changedItem[0].unitPrice;
+    //console.log(changedItem[0].selectedItemCount);
+    //console.log(changedItem[0].unitPrice);
+    //console.log(this.itemTotal);
+    this.getTotalAmount();
+    //console.log(this.totalAmount);
+    
+
+  }
+  CheckItemCount(){
+    console.log(this.items);
+    var selectedItems=this.items;
+    this._service.postCheckOut(selectedItems).subscribe(
+      res=>{
+        console.log(res.stockMessage);
+        window.alert(res.stockMessage);
+     },
+      err=>{
+      console.log(err);
+      }
+    )
+  }
+  
 
 }

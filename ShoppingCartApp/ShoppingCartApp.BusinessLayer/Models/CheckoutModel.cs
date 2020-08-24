@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ShoppingCartApp.BusinessLayer.Models
 {
-    public class ProductModel
+    public class CheckoutModel
     {
         public int ProductId { get; set; }
 
